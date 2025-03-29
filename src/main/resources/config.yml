@@ -1,0 +1,216 @@
+# # # # # # # # # # # # # # # # # 
+#
+#
+#         made by TheRayZV
+#       https://therayzv.ru
+#
+#
+#
+
+# Настройки чата
+chat:
+  # Настройки глобального чата
+  global:
+    # Префикс для глобальных сообщений (например, "!привет" отправит "привет" в глобальный чат)
+    prefix: "!"
+    # Формат для глобальных сообщений: {player} - имя игрока, {message} - содержание сообщения
+    format: "&7[&cГлобальный&7] &f%luckperms_prefix% &f{player}&7: &f{message}"
+    # Пример формата с LuckPerms: 
+    # format: "&7[&cГлобальный&7] {prefix}&f{player}{suffix}&7: &f{message}"
+    # или
+    # format: "&7[&c{group}&7] {prefix}&f{player}&7: &f{message}"
+    # Пример формата с LuckPerms в стиле PlaceholderAPI:
+    # format: "&7[&cГлобальный&7] %luckperms_prefix%&f{player}%luckperms_suffix%&7: &f{message}"
+    # или
+    # format: "&7[&c%luckperms_group%&7] %luckperms_prefix%&f{player}&7: &f{message}"
+
+  # Настройки локального чата
+  local:
+    # Радиус локального чата в блоках
+    radius: 100
+    # Формат для локальных сообщений
+    format: "&7[&aЛокальный&7] &f%luckperms_prefix% &f{player}&7: &f{message}"
+    # Пример формата с LuckPerms:
+    # format: "&7[&aЛокальный&7] {prefix}&f{player}{suffix}&7: &f{message}"
+    # или
+    # format: "&7[&a{group}&7] {prefix}&f{player}&7: &f{message}"
+    # Пример формата с LuckPerms в стиле PlaceholderAPI:
+    # format: "&7[&aЛокальный&7] %luckperms_prefix%&f{player}%luckperms_suffix%&7: &f{message}"
+    # или
+    # format: "&7[&a%luckperms_group%&7] %luckperms_prefix%&f{player}&7: &f{message}"
+    
+    # Настройки уведомления, если никто не увидел сообщение в локальном чате
+    no_recipients:
+      # Включить/выключить уведомление, если никто не увидел сообщение
+      enabled: true
+      # Формат уведомления
+      message: "&7[&cУведомление&7] &fВаше сообщение никто не увидел. Рядом нет других игроков."
+  
+  # Настройки личных сообщений
+  private:
+    # Включить/выключить кастомные личные сообщения
+    enabled: true
+    # Формат для отправителя: {sender} - отправитель, {recipient} - получатель, {message} - сообщение
+    sender_format: "&7[&dЯ &7→ &d{recipient}&7] &f{message}"
+    # Формат для получателя: {sender} - отправитель, {recipient} - получатель, {message} - сообщение
+    recipient_format: "&7[&d{sender} &7→ &dЯ&7] &f{message}"
+    # Показывать сообщение об успешной отправке
+    show_success_message: false
+
+  # Настройки оповещений (broadcast)
+  broadcast:
+    # Включить/выключить кастомные оповещения
+    enabled: true
+    # Формат оповещения в виде массива строк
+    format-lines:
+      - "&8[&c&lОБЪЯВЛЕНИЕ&8]"
+      - "&f{message}"
+    # Звук при оповещении (список звуков можно найти в документации Bukkit)
+    sound:
+      enabled: true
+      sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+      volume: 1.0
+      pitch: 1.0
+
+# Настройки системных сообщений
+system:
+  # Настройки сообщений о входе игрока
+  join:
+    # Включить/выключить кастомные сообщения о входе
+    enabled: true
+    # Формат сообщения о входе
+    # Доступные плейсхолдеры: {player}, {prefix}
+    format: "&8[&a+&8] {prefix}&f{player} &7присоединился к серверу"
+  
+  # Настройки сообщений о выходе игрока
+  quit:
+    # Включить/выключить кастомные сообщения о выходе
+    enabled: true
+    # Формат сообщения о выходе
+    # Доступные плейсхолдеры: {player}, {prefix}
+    format: "&8[&c-&8] {prefix}&f{player} &7покинул сервер"
+  
+  # Настройки сообщений о достижениях
+  achievements:
+    # Включить/выключить кастомные сообщения о достижениях
+    enabled: true
+    # Формат сообщения о достижении: {player} - имя игрока, {achievement} - название достижения
+    format: "&8[&e⭐&8] {prefix}&f{player} &eполучил достижение &6{achievement}"
+    # Пример формата с LuckPerms в стиле PlaceholderAPI:
+    # format: "&8[&e⭐&8] %luckperms_prefix%&f{player} &eполучил достижение &6{achievement}"
+    # Показывать описание достижения отдельным сообщением (true - показывать, false - скрыть)
+    # Установите false, чтобы полностью отключить показ серого описания
+    show_description: false
+    # Формат описания: {description} - описание достижения
+    description_format: "&7{description}"
+
+  # Настройки сообщений о смерти
+  death:
+    # Включить/выключить кастомные сообщения о смерти
+    enabled: true
+    # Формат сообщения при убийстве игроком
+    # Доступные плейсхолдеры: {player}, {prefix}, {killer}, {killer_prefix}, {weapon}, {cause}
+    killed_by_player_format: "&8[&4☠&8] {prefix}&f{player} &7был убит игроком &f{killer}"
+    # Формат сообщения при смерти от других причин
+    # Доступные плейсхолдеры: {player}, {prefix}, {cause}
+    generic_format: "&8[&4☠&8] {prefix}&f{player} &7погиб {cause}"
+
+# Сообщения
+messages:
+  # Сообщения об ошибках
+  errors:
+    no_permission: "&cУ вас нет прав для использования этой команды!"
+    no_global_permission: "&cУ вас нет прав для использования глобального чата!"
+    no_local_permission: "&cУ вас нет прав для использования локального чата!"
+    no_msg_permission: "&cУ вас нет прав для отправки личных сообщений!"
+    no_broadcast_permission: "&cУ вас нет прав для отправки оповещений на сервер!"
+    no_reload_permission: "&cУ вас нет прав для перезагрузки конфигурации!"
+    no_set_permission: "&cУ вас нет прав для изменения настроек чата!"
+    no_toggle_permission: "&cУ вас нет прав для включения/отключения функций!"
+    unknown_command: "&cНеизвестная команда! Используйте /help для получения списка команд."
+    unknown_subcommand: "&cНеизвестная подкоманда! Введите '/rchat help' для помощи."
+    invalid_option: "&cНеверная опция! Доступные опции: prefix, radius, format"
+    invalid_radius: "&cНеверное значение радиуса! Должно быть число."
+    invalid_chat_type: "&cНеверный тип чата! Должен быть 'global' или 'local'."
+    invalid_format_usage: "&cИспользование: /rchat set format <global|local> <format>"
+    invalid_set_usage: "&cИспользование: /rchat set <option> <value>"
+    invalid_toggle_usage: "&cИспользование: /rchat toggle <join|quit|achievements|private|broadcast|no_recipients>"
+    invalid_msg_usage: "&cИспользование: /msg <игрок> <сообщение>"
+    invalid_broadcast_usage: "&cИспользование: /broadcast <сообщение>"
+    invalid_rchat_usage: "&cИспользование: /rchat <reload|help|set|toggle>"
+    player_not_found: "&cИгрок {player} не найден или не в сети."
+    self_message: "&cВы не можете отправить сообщение самому себе."
+    pm_disabled: "&cЛичные сообщения отключены на сервере."
+    broadcast_disabled: "&cОповещения отключены на сервере."
+    unknown_feature: "&cНеизвестная функция! Доступные функции: join, quit, achievements, private, broadcast, no_recipients"
+    console_reply: "&cКонсоль не может использовать команду reply."
+    no_reply_target: "&cВам никто не отправлял личных сообщений."
+  
+  # Сообщения об успехе
+  success:
+    reload: "&aКонфигурация перезагружена!"
+    prefix_set: "&aПрефикс глобального чата установлен: &f{value}"
+    radius_set: "&aРадиус локального чата установлен: &f{value}"
+    global_format_set: "&aФормат глобального чата установлен: &f{value}"
+    local_format_set: "&aФормат локального чата установлен: &f{value}"
+    join_format_set: "&aФормат сообщения о входе установлен: &f{value}"
+    quit_format_set: "&aФормат сообщения о выходе установлен: &f{value}"
+    achievements_format_set: "&aФормат сообщения о достижениях установлен: &f{value}"
+    private_format_set: "&aФормат личных сообщений установлен: &f{value}"
+    broadcast_format_set: "&aФормат оповещений установлен: &f{value}"
+    feature_enabled: "&aФункция &f{feature} &aвключена!"
+    feature_disabled: "&aФункция &f{feature} &aотключена!"
+    msg_sent: "&aСообщение отправлено игроку &f{recipient}&a."
+    broadcast_sent: "&aОповещение успешно отправлено на весь сервер."
+  
+  # Сообщения помощи
+  help:
+    header: "&7===== &arChat Помощь &7====="
+    help_cmd: "&f/rchat help &7- Показать это сообщение"
+    reload_cmd: "&f/rchat reload &7- Перезагрузить конфигурацию плагина"
+    prefix_cmd: "&f/rchat set prefix <prefix> &7- Установить префикс глобального чата"
+    radius_cmd: "&f/rchat set radius <radius> &7- Установить радиус локального чата"
+    format_cmd: "&f/rchat set format <global|local> <format> &7- Установить формат чата"
+    join_format_cmd: "&f/rchat set join <format> &7- Установить формат сообщения о входе"
+    quit_format_cmd: "&f/rchat set quit <format> &7- Установить формат сообщения о выходе"
+    achievements_format_cmd: "&f/rchat set achievements <format> &7- Установить формат сообщения о достижениях"
+    toggle_cmd: "&f/rchat toggle <join|quit|achievements|private|broadcast|no_recipients> &7- Включить/выключить функцию"
+    msg_cmd: "&f/msg <игрок> <сообщение> &7- Отправить личное сообщение игроку"
+    broadcast_cmd: "&f/broadcast <сообщение> &7- Отправить оповещение на весь сервер"
+    footer: "&7============================"
+    placeholders_header: "&7Доступные плейсхолдеры в форматах:"
+    player_placeholder: "&f{player} &7- Имя игрока"
+    sender_placeholder: "&f{sender} &7- Имя отправителя"
+    recipient_placeholder: "&f{recipient} &7- Имя получателя"
+    message_placeholder: "&f{message} &7- Содержимое сообщения"
+    world_placeholder: "&f{world} &7- Название мира"
+    achievement_placeholder: "&f{achievement} &7- Название достижения"
+    description_placeholder: "&f{description} &7- Описание достижения"
+    luckperms_header: "&7Плейсхолдеры LuckPerms:"
+    prefix_placeholder: "&f{prefix} &7- Префикс игрока"
+    suffix_placeholder: "&f{suffix} &7- Суффикс игрока"
+    group_placeholder: "&f{group} &7- Группа игрока"
+    meta_placeholder: "&f{lp_meta:ключ} &7- Мета-данные игрока"
+
+# Права
+permissions:
+  # Право на использование локального чата
+  local: "rchat.local"
+  # Право на использование глобального чата
+  global: "rchat.global"
+  # Право на отправку личных сообщений
+  msg: "rchat.msg"
+  # Право на отправку оповещений
+  broadcast: "rchat.broadcast"
+  # Право на перезагрузку конфигурации
+  reload: "rchat.reload"
+  # Право на изменение настроек
+  set: "rchat.set"
+  # Право на включение/выключение функций
+  toggle: "rchat.toggle"
+
+# Настройки для отображения названий миров
+worlds:
+  world: "ОБЫЧНЫЙ МИР"
+  world_nether: "АД"
+  world_the_end: "КРАЙ" 

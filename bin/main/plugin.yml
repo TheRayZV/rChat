@@ -1,0 +1,46 @@
+name: rChat
+version: '2.0.0'
+main: therayzv.rChat.RChat
+api-version: '1.21'
+authors: [TheRayZV]
+description: Удобный и функциональный плагин для управления чатом на серверах Minecraft.
+softdepend: [LuckPerms]
+commands:
+  rchat:
+    description: Основная команда для управления плагином rChat
+    usage: /rchat <reload|help|set|toggle>
+    aliases: [rc]
+  msg:
+    description: Отправить личное сообщение другому игроку
+    usage: /msg <игрок> <сообщение>
+    aliases: [tell, w, whisper, m, pm]
+  broadcast:
+    description: Отправить оповещение на весь сервер
+    usage: /broadcast <сообщение>
+    aliases: [bc, alert, announce]
+  reply:
+    description: Ответить на последнее полученное личное сообщение
+    usage: /reply <сообщение>
+    aliases: [r]
+permissions:
+  rchat.reload:
+    description: Разрешает перезагружать конфигурацию плагина
+    default: op
+  rchat.set:
+    description: Разрешает изменять настройки чата
+    default: op
+  rchat.toggle:
+    description: Разрешает включать/отключать функции чата
+    default: op
+  rchat.global:
+    description: Разрешает использовать глобальный чат
+    default: true
+  rchat.local:
+    description: Разрешает использовать локальный чат
+    default: true
+  rchat.msg:
+    description: Разрешает отправлять личные сообщения
+    default: true
+  rchat.broadcast:
+    description: Разрешает отправлять оповещения на весь сервер
+    default: op
